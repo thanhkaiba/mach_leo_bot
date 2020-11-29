@@ -21,7 +21,7 @@ const appRouter = (app, fs) => {
 
     app.post('/', (req, res) => {
 
-        mc.set(req.body.roomId, JSON.stringify(req.body.data), {expires:0}, function(err, val) {
+        mc.set(req.body.roomId, JSON.stringify(req.body.data), {expires:60 * 60 * 24}, function(err, val) {
             if(err != null) {
                 console.log('Error setting value: ' + err);
                 res.send('Error setting value');
